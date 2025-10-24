@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { socket } from "@/socket";
-import { time } from "console";
 
 type Message = {
   id: string;
