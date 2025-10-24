@@ -24,6 +24,13 @@ app.prepare().then(() => {
         // Broadcast the message to all connected clients except the sender
         socket.to(groupName).emit("receive_message", msg);
       });
+      
+      socket.on("typing", () => {
+        socket.to(groupName).emit("user_typing", userName);
+      });
+      socket.on("stop_typing", () => {
+        socket.to(groupName).emit("user_stop_typing", userName);
+      });
     });
 
   });
